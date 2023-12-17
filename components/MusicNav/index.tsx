@@ -12,18 +12,82 @@ import {
   FaRegStar,
   FaBars,
 } from "react-icons/fa";
-import { useState, useEffect } from "react";
 import NavBtn from "./NavBtn";
+import { IconType } from "react-icons";
+
+type NavData = {
+  groupName:''|'Discover'|'Your Collection'
+  items:{
+    text:string
+    Icon:IconType
+    href:string
+  }[]
+}[]
+
+let Data:NavData = [
+  {
+    groupName:'',
+    items:[
+      {
+        text:'Home',
+        Icon:FaHome,
+        href:'/'
+      },
+      {
+        text:'Trends',
+        Icon:FaChartLine,
+        href:'/trends'
+      },
+      {
+        text:'Feed',
+        Icon:FaCompass,
+        href:'/feed'
+      },
+    ]
+  },
+  {
+    groupName:'Discover',
+    items:[
+      {
+        text:'New and Notable',
+        Icon:FaGripHorizontal,
+        href:'/new'
+      },
+      {
+        text:'Release Calendar',
+        Icon:FaRegCalendarAlt,
+        href:'/calendar'
+      },
+      {
+        text:'Events',
+        Icon:FaTicketAlt,
+        href:'/events'
+      },
+    ]
+  },
+  {
+    groupName:'Your Collection',
+    items:[
+      {
+        text:'Favorite Songs',
+        Icon:FaRegHeart,
+        href:'/favorite_songs'
+      },
+      {
+        text:'Trends',
+        Icon:FaUsers,
+        href:'/artists'
+      },
+      {
+        text:'Albums',
+        Icon:FaRegStar,
+        href:'/albums'
+      },
+    ]
+  },
+]
 
 export default function MusicNav() {
-  const notHidden =
-    "w-[28vw] min-w-[300px] max-w-[320px]  px-4 flex flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav";
-  const Hidden =
-    "w-[5vw] h-[5vh] overflow-y-hidden overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700";
-
-
-
-  
   return (
     <div className="w-[28vw] min-w-[300px] max-w-[320px]  px-4 flex flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav">
       <FaBars
@@ -32,39 +96,31 @@ export default function MusicNav() {
       />
       <div className="flex flex-col">
         <div className="flex flex-col w-[20vw] ">
-          <h1 className=" my-10 text-3xl">
+          <h1 className=" mt-10 text-3xl">
             Halo<span className=" text-blue-600">fi</span>
           </h1>
-          <NavBtn Icon={FaHome} text="Home" />
-          <NavBtn  Icon={FaChartLine} text="Trends" />
-          <NavBtn  Icon={FaCompass} text="Feed" />
         </div>
-        <div className="flex my-4 flex-col">
-          <h6 className=" text-gray-400">Discover</h6>
-          <NavBtn
-            Icon={FaGripHorizontal}
-            text="New and Notable"
-          />
-          <NavBtn
-            Icon={FaRegCalendarAlt}
-            text="Release Calendar"
-          />
-          <NavBtn Icon={FaTicketAlt} text="Events" />
-        </div>
-        <div className="flex my-4 flex-col">
-          <h6 className=" text-gray-400">Your Collection</h6>
-          <NavBtn
-            Icon={FaRegHeart}
-            text="Favorite Songs"
-          />
-          <NavBtn Icon={FaUsers} text="Artist" />
-          <NavBtn Icon={FaRegStar} text="Albums" />
-        </div>
+        {
+          Data.map((group) => {
+              return (
+                <div key={group.groupName} className="flex my-4 flex-col">
+                  {group.groupName?<h6 className=" text-gray-400">{group.groupName}</h6>:null}
+                  {
+                    group.items.map((item) => {
+                        return (
+                          <NavBtn
+                            key={item.href}
+                            Icon={item.Icon}
+                            text={item.text}
+                          />
+                        );
+                    })
+                  }
+                </div>
+              );
+          })
+        }
       </div>
     </div>
   );
 }
-
-
-
-
