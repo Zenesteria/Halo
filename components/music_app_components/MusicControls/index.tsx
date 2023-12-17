@@ -4,6 +4,7 @@ import {BsMusicNoteBeamed, BsArrowsAngleExpand,BsArrowsAngleContract, BsFillPaus
 import {FiRepeat, FiMoreHorizontal} from 'react-icons/fi'
 import {BiRewind, BiFastForward} from 'react-icons/bi'
 import player from '../music_app_styles/player.module.css'
+import PlayBackBtn from './Playbtn'
 
 const MusicControls = () => {
     const [playing, setPlaying] = useState(true)
@@ -40,11 +41,11 @@ const MusicControls = () => {
     const handleFullScreen = () => {
         let fullScreenElem = document.getElementById('fullScreen')
         if(fullScreen){
-            fullScreenElem.requestFullscreen()
+            fullScreenElem?.requestFullscreen()
             setFullScreen(true)
         }
         else{
-            fullScreenElem.requestFullscreen()
+            fullScreenElem?.requestFullscreen()
             setFullScreen(false)
         }
     }
@@ -76,11 +77,11 @@ const MusicControls = () => {
                 <FiMoreHorizontal className='mdxs:hidden'/>
             </div>
             <div className="flex items-center justify-center w-[85%]  h-full">
-                <PlayBackBtn icon={<FiRepeat className={repeat ? 'text-[2rem] bg-purple-400 text-white p-2 rounded-full transition-all duration-300' : 'text-[2rem] p-2 rounded-full transition-all duration-300'} onClick={handleRepeat}/>}/>
-                <PlayBackBtn icon={<BiRewind className='text-[1.3rem]'/>}/>
+                <PlayBackBtn Icon={FiRepeat} callBack={handleRepeat}/>
+                <PlayBackBtn Icon={BiRewind} callBack={() => {}}/>
                 {playing ? <BsFillPauseCircleFill className='bg-white rounded-full text-[1.5rem] mdxs:text-[2.5rem] cursor-pointer transition-all hover:bg-black hover:text-white duration-500' onClick={handlePlaying}/> : <BsFillPlayCircleFill className='bg-white rounded-full text-[1.5rem] mdxs:text-[2.5rem] cursor-pointer transition-all hover:bg-black hover:text-white duration-500' onClick={handlePlaying}/>}
-                <PlayBackBtn icon={<BiFastForward className='text-[1.3rem]'/>}/>
-                <PlayBackBtn icon={<BsShuffle className={shuffle ? 'text-[2rem] bg-purple-400 text-white p-2 rounded-full transition-all duration-300' : 'text-[2rem] p-2 rounded-full transition-all duration-300'} onClick={handleShuffle}/>}/>
+                <PlayBackBtn Icon={BiFastForward} callBack={() => {}}/>
+                <PlayBackBtn Icon={BsShuffle} callBack={handleShuffle}/>
             </div>
             <div className="flex items-center w-fit">
                 <div className="hidden mdxs:flex items-center">
@@ -102,13 +103,7 @@ const MusicControls = () => {
 
 
 
-const PlayBackBtn = (props) => {
-    return(
-        <div className="flex cursor-pointer mx-1 rounded-full hover:border-purple-200  border-transparent border-[1px] hover:bg-purple-100 transition-all duration-300 p-1 items-center w-fit h-fit">
-            {props.icon}
-        </div>
-    )
-}
+
 
 
 export default MusicControls;
