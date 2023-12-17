@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MusicApp from "@/components/MusicApp";
-import MusicNav from "@/components/MusicNav";
+import MusicNav from "@/components/music_app_components/MusicNav";
 import { Metadata } from "next";
 
 export const metadata:Metadata = {
