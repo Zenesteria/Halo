@@ -89,7 +89,7 @@ let Data:NavData = [
 
 export default function MusicNav() {
   return (
-    <div className="w-[28vw] min-w-[300px] max-w-[320px]  px-4 flex flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav">
+    <div className="flex-[0.2] min-w-[250px] max-w-[350px] px-4 sm:flex hidden flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav">
       <FaBars
         className="flex xl:hidden absolute top-0 left-0 barIcon"
         size="20"
@@ -112,6 +112,7 @@ export default function MusicNav() {
                             key={item.href}
                             Icon={item.Icon}
                             text={item.text}
+                            href={item.href}
                           />
                         );
                     })

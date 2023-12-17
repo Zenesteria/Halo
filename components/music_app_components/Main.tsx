@@ -1,7 +1,4 @@
-import {FaFire, FaRegHeart} from 'react-icons/fa'
-import {FiRepeat} from 'react-icons/fi'
-import {BiRewind, BiFastForward} from 'react-icons/bi'
-import {BsVolumeUp, BsVolumeDown, BsMusicNoteBeamed, BsArrowsAngleExpand, BsFillPauseCircleFill, BsShuffle} from 'react-icons/bs'
+import {FaFire} from 'react-icons/fa'
 import Banner from './Banner'
 import SongMenu from './SongMenu'
 import MusicControls from './MusicControls'
