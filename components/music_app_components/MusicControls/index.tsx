@@ -3,7 +3,7 @@ import {FaRegHeart,FaHeart} from 'react-icons/fa'
 import {BsMusicNoteBeamed, BsArrowsAngleExpand,BsArrowsAngleContract, BsFillPauseCircleFill,BsFillPlayCircleFill, BsShuffle, BsVolumeUp, BsVolumeDown} from 'react-icons/bs'
 import {FiRepeat, FiMoreHorizontal} from 'react-icons/fi'
 import {BiRewind, BiFastForward} from 'react-icons/bi'
-import player from '../music_app_styles/player.module.css'
+import player from '../../music_app_styles/player.module.css'
 import PlayBackBtn from './Playbtn'
 
 const MusicControls = () => {
